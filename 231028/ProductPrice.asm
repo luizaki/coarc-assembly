@@ -1,5 +1,3 @@
-# Sanchez, Francine Louise B. | CS - 202
-
 .data # variables
     newline: .asciiz "\n"
     whitespace: .asciiz " "
