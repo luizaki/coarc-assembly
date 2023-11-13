@@ -11,15 +11,15 @@
         # if (a > b)
         blt $s1, $s2, true
         
-        # else
-        # c * d, store to $t0
-        mul $t0, $s3, $s4
+        # else        
+        # a + b, store to $t0
+        add $t0, $s1, $s2
         
-        # a + b, store to $t1
-        add $t1, $s1, $s2
+        # c * d, store to $t1
+        mul $t1, $s3, $s4
         
         # (a + b) - (c * d), store to $s5
-        sub $s5, $t1, $t0
+        sub $s5, $t0, $t1
         
         # display result and exit
         j finally
@@ -28,11 +28,11 @@
         # c * d, store to $t0
         mul $t0, $s3, $s4
         
-        # b - (c * d), store to $t1
-        sub $t1, $s2, $t0
+        # a + b, store to $t1
+        add $t1, $s1, $s2
         
-        # a + (b - (c * d)), store to $s5
-        add $s5, $s1, $t1
+        # a + b - c * d, store to $s5
+        sub $s5, $t1, $t0
     
     finally:
         # diplay result msg
